@@ -1,13 +1,13 @@
 {
   "name": "thenable",
   "version": "0.0.1",
+  "author": "AJ Hsu",
+  "license": "MIT",
   "main": "index.js",
   "repository": {
     "url": "https://github.com/ajhsu/thenable.git",
     "type": "git"
   },
-  "author": "AJ Hsu",
-  "license": "MIT",
   "devDependencies": {
     "babel": "^6.5.2",
     "babel-cli": "^6.16.0",
