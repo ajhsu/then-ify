@@ -1,17 +1,21 @@
-# thenable
+# then-ify
+[![Build Status](https://travis-ci.org/ajhsu/then-ify.svg?branch=master)](https://travis-ci.org/ajhsu/then-ify)
+Make your synchronous function thenable.
 
-[![Build Status](https://travis-ci.org/ajhsu/thenable.svg?branch=master)](https://travis-ci.org/ajhsu/thenable)
+## Install
+```bash
+$ npm install then-ify --save
+```
 
 ## Example
 
 ```javascript
-function plainJsFunction(param) {
-  
-}
+var thenify = require('then-ify');
 
-promise
-  .then(
-    thenable(plainJsFunction)
-  )
-  .then();
+// Here we have a synchronous function
+function syncFunction(param) { ... }
+
+// Now you can call .then with then-ify
+thenify(syncFunction)(someParams)
+  .then(...);
 ```
