@@ -14,9 +14,11 @@ $ npm install then-ify --save
 var thenify = require('then-ify');
 
 // Here we have a synchronous function
-function syncFunction(param) { ... }
+function syncFunction(input) { return input * input; }
 
 // Now you can call .then with then-ify
-thenify(syncFunction)(someParams)
-  .then(...);
+thenify(syncFunction)(3)
+  .then(function(output){
+    // output = 9
+  });
 ```

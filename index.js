@@ -1,7 +1,7 @@
-var thenify = function(func) {
-  return function(result) {
-    func(result);
-    return Promise.resolve(result);
+var thenify = function(f) {
+  return function(input) {
+    return Promise.resolve(f(input));
   };
 };
+
 module.exports = thenify;

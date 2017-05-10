@@ -1,34 +1,35 @@
 var test = require('tape');
 var thenify = require('./index.js');
 
-test('Thenified sync function as middleware', function(t) {
-  t.plan(1);
-  // Arrange
-  const somethingReturnPromise = function() {
-    return new Promise(function(resolve, reject) {
-      resolve('it_works');
-    });
+test('Make sync function thenable', function(t) {
+  t.plan(2);
+
+  var syncf = function(input) {
+    return input ? input : -1;
   };
-  const validateMiddleware = function(result) {
-    // Assert
-    t.equal('it_works', result);
-  };
-  // Act
-  somethingReturnPromise()
-    .then(thenify(validateMiddleware))
-    .then(function(res) {
-      console.log(res);
-    });
+  thenify(syncf)().then(function(output) {
+    t.equal(-1, output);
+  });
+  thenify(syncf)(3).then(function(output) {
+    t.equal(3, output);
+  });
 });
 
-test('Call thenified function directly', function(t) {
-  t.plan(1);
+test('Thenified sync function as middleware', function(t) {
+  t.plan(2);
   // Arrange
-  const donothing = function() {};
-  const validateFunction = function(result) {
+  var asyncf = function() {
+    return new Promise(function(resolve, reject) {
+      resolve(1);
+    });
+  };
+  const middlef = function(input) {
     // Assert
-    t.pass('Validate function was called');
+    t.equal(1, input);
+    return 2;
   };
   // Act
-  thenify(donothing)().then(validateFunction);
+  asyncf().then(thenify(middlef)).then(function(output) {
+    t.equal(2, output);
+  });
 });
