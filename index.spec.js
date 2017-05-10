@@ -1,7 +1,7 @@
 var test = require('tape');
-var thenable = require('./index.js');
+var thenify = require('./index.js');
 
-test('Thenable function as middleware', function(t) {
+test('Thenified sync function as middleware', function(t) {
   t.plan(1);
   // Arrange
   const somethingReturnPromise = function() {
@@ -15,13 +15,13 @@ test('Thenable function as middleware', function(t) {
   };
   // Act
   somethingReturnPromise()
-    .then(thenable(validateMiddleware))
+    .then(thenify(validateMiddleware))
     .then(function(res) {
       console.log(res);
     });
 });
 
-test('Call thenable function directly', function(t) {
+test('Call thenified function directly', function(t) {
   t.plan(1);
   // Arrange
   const donothing = function() {};
@@ -30,5 +30,5 @@ test('Call thenable function directly', function(t) {
     t.pass('Validate function was called');
   };
   // Act
-  thenable(donothing)().then(validateFunction);
+  thenify(donothing)().then(validateFunction);
 });
