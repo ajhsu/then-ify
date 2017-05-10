@@ -1,5 +1,6 @@
-# then-ify
 [![Build Status](https://travis-ci.org/ajhsu/then-ify.svg?branch=master)](https://travis-ci.org/ajhsu/then-ify)
+
+# then-ify
 Make your synchronous function thenable.
 
 ## Install
