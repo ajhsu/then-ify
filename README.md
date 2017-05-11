@@ -1,6 +1,9 @@
-[![Build Status](https://travis-ci.org/ajhsu/then-ify.svg?branch=master)](https://travis-ci.org/ajhsu/then-ify)
-
 # then-ify
+
+[![NPM version][npm-image]][npm-url]
+[![Build status][travis-image]][travis-url]
+[![License][license-image]][license-url]
+
 Make your synchronous function thenable.
 
 ## Install
@@ -22,3 +25,10 @@ thenify(syncFunction)(3)
     // output = 9
   });
 ```
+
+[npm-image]: https://img.shields.io/npm/v/then-ify.svg
+[npm-url]: https://www.npmjs.com/package/then-ify
+[travis-image]: https://img.shields.io/travis/ajhsu/then-ify.svg
+[travis-url]: https://travis-ci.org/ajhsu/then-ify
+[license-image]: https://img.shields.io/github/license/ajhsu/then-ify.svg
+[license-url]: LICENSE
