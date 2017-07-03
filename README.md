@@ -1,10 +1,10 @@
 # then-ify
 
+Make your synchronous function thenable.
+
 [![NPM version][npm-image]][npm-url]
 [![Build status][travis-image]][travis-url]
 [![License][license-image]][license-url]
-
-Make your synchronous function thenable.
 
 ## Install
 ```bash
